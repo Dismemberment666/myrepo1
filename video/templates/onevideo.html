@@ -1,0 +1,21 @@
+{% extends 'main_template.html' %}
+
+{% block onevideo %}
+    <iframe width="1150" height="720" src="{{ video.url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    {% for c in comm %}
+            <h1>{{ c.text }}</h1>
+    {% endfor %}
+
+
+    <div id="comments"></div>
+
+        <input id="slug"  type="hidden" value="{{ video.slug }}" name="slug">
+
+        <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+        </div>
+
+        <input type="submit" id="comment" value="submit">
+{% endblock %}

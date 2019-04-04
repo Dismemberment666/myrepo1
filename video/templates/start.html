@@ -1,0 +1,16 @@
+{% extends 'main_template.html' %}
+{% load staticfiles %}
+
+{% block start %}
+    {% for vid in video %}
+        <iframe width="1150" height="720" src="{{ vid.url }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <h1><a href="/{{ vid.slug }}">{{ vid.title }}</a></h1>
+        <h2>{{ vid.dis }}</h2>
+
+
+        <h3>all comments {{ vid.countcomment }}</h3>
+
+        <h5 class="like" id="like{{ vid.id }}">likes {{ vid.like }}</h5>
+        <h6>Date {{ vid.date }}</h6><hr>
+    {% endfor %}
+{% endblock %}
